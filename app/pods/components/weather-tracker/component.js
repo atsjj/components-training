@@ -1,17 +1,12 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 export default Ember.Component.extend({
-  isLoading: false,
+  loadWeather: task(function * (zip) {
+    if (zip.length === 5) {
+      const weather = yield Ember.$.get('/weather');
 
-  actions: {
-    loadWeather(zip) {
-      if (zip.length === 5) {
-        this.set('isLoading', true);
-
-        Ember.$.get('/weather')
-          .then(weather => this.set('weather', weather))
-          .then(() => this.set('isLoading', false));
-      }
+      this.set('weather', weather);
     }
-  }
+  }).restartable()
 });
