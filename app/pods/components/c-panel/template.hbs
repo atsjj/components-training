@@ -1,12 +1,12 @@
 <div class="Panel">
 
   <div class="Panel__header">
-    <a href="#" class="Panel__header__title" {{action "accordian"}}>
+    <a href="#" class="Panel__header__title" {{action "toggleIsOpen"}}>
       {{title}}
     </a>
   </div>
 
-  <div class="Panel__body {{if isExpanded "Panel__body--opened" "Panel__body--closed"}}">
+  <div class="Panel__body {{if isOpen "Panel__body--opened" "Panel__body--closed"}}">
 
     {{#if hasBlock}}
       {{yield}}

@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  isOpen: true,
   isFrozen: false,
 
   actions: {
@@ -8,8 +9,10 @@ export default Ember.Controller.extend({
       this.toggleProperty('isFrozen');
     },
 
-    shouldToggle() {
-      return !this.get('isFrozen');
+    togglePanel() {
+      if (!this.get('isFrozen')) {
+        this.toggleProperty('isOpen');
+      }
     },
   }
 });

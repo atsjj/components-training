@@ -20,7 +20,7 @@
   cannot be opened or closed.
 </p>
 
-{{c-panel accordian=(action "shouldToggle")}}
+{{c-panel on-title-click=(action "togglePanel") isOpen=isOpen}}
 
 {{#c-panel title="Much Attribute, So Customize"}}
   <p>
