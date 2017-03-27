@@ -4,9 +4,7 @@ import { task } from 'ember-concurrency';
 export default Ember.Component.extend({
   loadWeather: task(function * (zip) {
     if (zip.length === 5) {
-      const weather = yield Ember.$.get('/weather');
-
-      this.set('weather', weather);
+      return yield Ember.$.get('/weather');
     }
   }).restartable()
 });

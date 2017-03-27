@@ -4,9 +4,9 @@
 
 <input type="number" oninput={{perform loadWeather value="target.value"}}>
 
-{{#if weather}}
+{{#if loadWeather.last.value}}
   <p>
-    The weather is {{weather}}
+    The weather is {{loadWeather.last.value}}
   </p>
 {{/if}}
 
