@@ -8,7 +8,11 @@
 
   <div class="Panel__body {{if isExpanded "Panel__body--opened" "Panel__body--closed"}}">
 
-    Body here
+    {{#if hasBlock}}
+      {{yield}}
+    {{else}}
+      Body here
+    {{/if}}
 
   </div>
 
