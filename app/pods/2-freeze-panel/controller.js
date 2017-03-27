@@ -13,6 +13,8 @@ export default Ember.Controller.extend({
       if (!this.get('isFrozen')) {
         this.toggleProperty('isOpen');
       }
+
+      return this.get('isOpen');
     },
   }
 });

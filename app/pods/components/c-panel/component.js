@@ -4,15 +4,16 @@ export default Ember.Component.extend({
   title: 'Title here',
   isOpen: true,
 
-  'on-title-click': null,
+  'on-title-click': function(isOpen) {
+    return !isOpen;
+  },
 
   actions: {
     toggleIsOpen() {
-      if (this.get('on-title-click')) {
-        this.get('on-title-click')();
-      } else {
-        this.toggleProperty('isOpen');
-      }
+      const isOpen = this.get('isOpen');
+      const actionReturnValue = !!this.get('on-title-click')(isOpen);
+
+      this.set('isOpen', actionReturnValue);
     }
   }
 });
