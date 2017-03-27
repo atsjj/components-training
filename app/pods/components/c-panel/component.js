@@ -5,13 +5,15 @@ export default Ember.Component.extend({
   isFrozen: false,
   isExpanded: true,
 
+  accordian() {
+    return true;
+  },
+
   actions: {
     accordian() {
-      if (this.get('isFrozen')) {
-        return;
+      if (this.accordian()) {
+        this.toggleProperty('isExpanded');
       }
-
-      this.toggleProperty('isExpanded');
     }
   }
 });
