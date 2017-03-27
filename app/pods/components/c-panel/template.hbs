@@ -1,16 +1,12 @@
 <div class="Panel">
 
   <div class="Panel__header">
-    <a href="#"
-       class="Panel__header__title">
-
+    <a href="#" class="Panel__header__title" {{action "accordian"}}>
       Title here
-
     </a>
-
   </div>
 
-  <div class="Panel__body">
+  <div class="Panel__body {{if isExpanded "" "Panel__closed"}}">
 
     Body here
 
