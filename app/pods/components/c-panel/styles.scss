@@ -22,9 +22,13 @@
 
   &__body {
     padding: 1em;
-  }
 
-  &__closed {
-    display: none;
+    &--opened {
+      display: block;
+    }
+
+    &--closed {
+      display: none;
+    }
   }
 }
